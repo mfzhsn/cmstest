@@ -1,0 +1,35 @@
+#Google Anthos Installation
+
+Footprints
+1. Baremetals
+2. CentOS-8.4
+3. Google Anthos-1.10
+
+
+##Topology
+
+
+##Preparation
+
+### 1. Installation of OS and Packages on Admin Node and User-Nodes (Master/Worker) 
+
+Following are the packages needs to be installed on CentOS-8.4
+
+```
+1. Install Centos-8.4
+2. Disable Firewall
+2. Disable Selinux
+3. Install Docker
+4. Enable Chrony
+5. Enable DNS (/etc/resolv)
+6. Enable passwordless connection
+```
+#####Notes:
+* CentOS-8 comes with Podman as a default runtime, You need to remove it `yum remove podman`.
+* CentOS-8 also has a package `buildah-1.21.4-2.module_el8.4.0+942+d25aada8.x86_64` which conflicts with docker installation, you need to remove it using `yum remove buildah-1.21.4-2.module_el8.4.0+942+d25aada8.x86_64` 
+
+#### 2. Install gcloud and bmctl on Admin Node
+
+#####Download the gcloud-SDK package
+
+`curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-366.0.0-linux-x86_64.tar.gz`
